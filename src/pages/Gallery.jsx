@@ -1,59 +1,34 @@
-import { Link } from 'react-router-dom'
-
-const steps = [
-  {
-    number: '01',
-    title: 'Start a conversation',
-    text: 'Tell us about your child and what you are looking for in a school.',
-  },
-  {
-    number: '02',
-    title: 'Visit our campus',
-    text: 'Meet our team, see our learning spaces and experience our community.',
-  },
-  {
-    number: '03',
-    title: 'Apply with confidence',
-    text: 'We will guide your family through the application and enrolment process.',
-  },
+const photos = [
+  { title: 'Student achievement', src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85' },
+  { title: 'Campus exterior', src: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85' },
+  { title: 'School life', src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=85' },
+  { title: 'Learning together', src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=85' },
+  { title: 'School pride', src: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85' },
+  { title: 'Campus view', src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85' },
 ]
 
-export default function Admissions() {
+export default function Gallery() {
   return (
     <section className="section page-section">
-      <div className="container admissions-layout">
-        <div className="admissions-copy">
-          <p className="eyebrow">Admissions</p>
-          <h1>Take the next step with Faith Academy.</h1>
-          <p className="lead">
-            We welcome families who are looking for a caring, purposeful learning community for their children.
-          </p>
+      <div className="container">
+        <p className="eyebrow">School life</p>
+        <h1>Moments that matter.</h1>
+        <p className="lead">
+          A glimpse into the learning, friendship and celebration that make Faith Academy special.
+        </p>
 
-          <div className="steps">
-            {steps.map((step) => (
-              <article key={step.number}>
-                <b>{step.number}</b>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <Link className="button" to="/contact">Contact admissions</Link>
+        <div className="gallery-grid">
+          {photos.map((photo) => (
+            <figure key={photo.title} className="gallery-card">
+              <img src={photo.src} alt={photo.title} />
+              <figcaption>{photo.title}</figcaption>
+            </figure>
+          ))}
         </div>
 
-        <div className="admissions-visual">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85"
-            alt="Faith Academy campus and learning spaces"
-          />
-          <div className="mini-panel">
-            <strong>Small classes</strong>
-            <span>Personal attention and strong teacher-student relationships.</span>
-          </div>
-        </div>
+        <p className="gallery-note">
+          Replace these stock images with your school’s real photos and event images as they become available.
+        </p>
       </div>
     </section>
   )

@@ -1,41 +1,58 @@
-const programs = [
+import { Link } from 'react-router-dom'
+
+const steps = [
   {
-    title: 'Early Years',
-    text: 'A joyful beginning built around curiosity, play and a love of learning.',
-    image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85',
+    number: '01',
+    title: 'Start a conversation',
+    text: 'Tell us about your child and what you are looking for in a school.',
   },
   {
-    title: 'Primary School',
-    text: 'Strong foundations in literacy, numeracy, life skills and Christian character.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85',
+    number: '02',
+    title: 'Visit our campus',
+    text: 'Meet our team, see our learning spaces and experience our community.',
   },
   {
-    title: 'Senior School',
-    text: 'Confident, capable learners prepared for further study and responsible leadership.',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85',
+    number: '03',
+    title: 'Apply with confidence',
+    text: 'We will guide your family through the application and enrolment process.',
   },
 ]
 
-export default function Programs() {
+export default function Admissions() {
   return (
     <section className="section page-section">
-      <div className="container">
-        <p className="eyebrow">Our programs</p>
-        <h1>Learning for every stage.</h1>
-        <p className="lead">
-          Our age-appropriate programs balance academic excellence with character, creativity and practical skills.
-        </p>
+      <div className="container admissions-layout">
+        <div className="admissions-copy">
+          <p className="eyebrow">Admissions</p>
+          <h1>Take the next step with Faith Academy.</h1>
+          <p className="lead">
+            We welcome families who are looking for a caring, purposeful learning community for their children.
+          </p>
 
-        <div className="program-grid">
-          {programs.map((program, index) => (
-            <article className="program-card" key={program.title}>
-              <img src={program.image} alt={program.title} />
-              <span className="feature-number">0{index + 1}</span>
-              <h2>{program.title}</h2>
-              <p>{program.text}</p>
-              <a className="text-link" href="/contact">Ask about this program →</a>
-            </article>
-          ))}
+          <div className="steps">
+            {steps.map((step) => (
+              <article key={step.number}>
+                <b>{step.number}</b>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <Link className="button" to="/contact">Contact admissions</Link>
+        </div>
+
+        <div className="admissions-visual">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85"
+            alt="Faith Academy campus and learning spaces"
+          />
+          <div className="mini-panel">
+            <strong>Small classes</strong>
+            <span>Personal attention and strong teacher-student relationships.</span>
+          </div>
         </div>
       </div>
     </section>
